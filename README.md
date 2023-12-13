@@ -1,19 +1,42 @@
+<!-- README.md  -->
 # Proyecto CoderHouse Backend 55655
-
 ## Clase 2 - Sprint 1
 
-En el código proporcionado:
+En este sprint, se implementa un sistema básico de gestión de productos y usuarios. A continuación se detallan las principales clases y funcionalidades desarrolladas:
 
-1. Se define una interfaz `ProductData`, especificando la estructura de los datos esperados para un producto, incluyendo propiedades como title, description, price, thumbnail, code y stock.
+### Clase `ListManager` y `Identifiable`
 
-2. Se declara una clase `ProductsManager`, que representa un gestor para manejar productos. Incluye propiedades para un producto (title, description, price, thumbnail, code, stock e id), así como un array estático `products` para almacenar instancias de la clase.
+La clase `ListManager` proporciona funcionalidades comunes para gestionar listas de objetos identificables. Utiliza la interfaz `Identifiable` para asegurar la presencia de un identificador en los objetos.
 
-3. La clase incluye un constructor, aunque no realiza ninguna acción cuando se crea una instancia.
+#### Métodos y Funcionalidades
 
-4. Se implementa un método estático privado `generateId` para generar identificadores únicos para cada producto basándose en la longitud del array `products`. Este método se utiliza para asignar identificadores a los productos durante su creación.
+- **`generateId`**: Genera un identificador único basado en la longitud actual de la lista de objetos.
 
-5. El método `addProduct` se define para agregar un nuevo producto al array `products`. Verifica si ya existe un producto con el mismo código y, si no es así, asigna los datos proporcionados a las propiedades de la instancia, genera un ID usando `generateId` y agrega el producto al array.
+- **`addItem`**: Agrega un nuevo objeto identificable a la lista, asignándole un ID único.
 
-6. El método `getProducts` recupera el array de productos almacenado en la propiedad `products`.
+- **`getItems`**: Recupera un array con todos los objetos identificables almacenados.
 
-7. El método `getProductById` toma un ID como parámetro e intenta encontrar un producto con ese ID. Si no lo encuentra, se lanza un error indicando que el producto no se encontró.
+- **`getItem`**: Recupera un objeto identificable específico por su ID. Si no se encuentra el objeto, lanza un error indicando que no se encontró.
+
+### Clase `UserManager`
+
+La clase `UserManager` extiende la funcionalidad de la clase `ListManager` para gestionar datos de usuarios. Cada usuario se define mediante la interfaz `UserData`.
+
+#### Métodos y Funcionalidades
+
+- **`constructor`**: Crea una instancia de `UserManager` sin realizar ninguna acción adicional.
+
+- **`addItem`**: Agrega un nuevo usuario al sistema verificando la existencia de usuarios con el mismo correo electrónico. Si ya existe un usuario con el mismo correo electrónico, se lanza un error; de lo contrario, se asigna un ID único al usuario.
+
+
+### Clase `ProductsManager`
+
+La clase `ProductsManager` extiende la funcionalidad de la clase `ListManager` para gestionar datos de productos. Cada producto se define mediante la interfaz `ProductData`.
+
+#### Métodos y Funcionalidades
+
+- **`constructor`**: Crea una instancia de `ProductsManager` sin realizar ninguna acción adicional.
+
+- **`addItem`**: Agrega un nuevo producto al sistema verificando la existencia de productos con el mismo código. Si ya existe un producto con el mismo código, se lanza un error; de lo contrario, se asigna un ID único al producto.
+
+## Clase 4 - Sprint 2
