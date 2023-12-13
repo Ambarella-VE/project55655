@@ -59,3 +59,4 @@ class ListManager<T extends Identifiable> {
   }
     
 }
+export {Identifiable, ListManager}

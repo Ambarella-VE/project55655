@@ -15,8 +15,8 @@ class UserManager extends ListManager<UserData> {
   }
 
   addItem(item: UserData): void {
-    if (this.items.find((user) => user.email === item.email)) {
-      throw new Error("User with the same email already exists.");
+    if (this.items.find(user => user.email === item.email)) {
+      throw new Error('User with the same email already exists.');
     } else {
       super.addItem(item);
     }
