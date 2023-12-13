@@ -1,8 +1,8 @@
 // UserManager.test.ts
-import { describe, expect, test, afterEach, beforeEach } from "@jest/globals";
-import { UserData, UserManager } from "./UserManager";
+import { describe, expect, test, afterEach, beforeEach } from '@jest/globals';
+import { UserData, UserManager } from './UserManager';
 
-describe("UserManager", () => {
+describe('UserManager', () => {
   let userManager: UserManager;
 
   beforeEach(() => {
@@ -13,15 +13,15 @@ describe("UserManager", () => {
     userManager.items = [];
   });
 
-  test("should start with an empty users array", () => {
+  test('should start with an empty users array', () => {
     expect(userManager.getItems()).toEqual([]);
   });
 
-  test("should add a user successfully", () => {
+  test('should add a user successfully', () => {
     const data: UserData = {
-      name: "Test User",
-      photo: "No image",
-      email: "test@example.com",
+      name: 'Test User',
+      photo: 'No image',
+      email: 'test@example.com',
     };
 
     userManager.addItem(data);
@@ -32,25 +32,21 @@ describe("UserManager", () => {
     expect(users[0]).toEqual(expect.objectContaining(data));
   });
 
-  test("should throw an error when adding a user with a duplicate email", () => {
+  test('should throw an error when adding a user with a duplicate email', () => {
     const data: UserData = {
-      name: "Test User",
-      photo: "No image",
-      email: "test@example.com",
+      name: 'Test User',
+      photo: 'No image',
+      email: 'test@example.com',
     };
 
     userManager.addItem(data);
 
-    expect(() => userManager.addItem(data)).toThrowError(
-      "User with the same email already exists."
-    );
+    expect(() => userManager.addItem(data)).toThrowError('User with the same email already exists.');
   });
 
-  test("should throw an error when getting a non-existing user", () => {
+  test('should throw an error when getting a non-existing user', () => {
     const nonExistingUserId = 999;
 
-    expect(() => userManager.getItem(nonExistingUserId)).toThrowError(
-      `Item with ID ${nonExistingUserId} not found.`
-    );
+    expect(() => userManager.getItem(nonExistingUserId)).toThrowError(`Item with ID ${nonExistingUserId} not found.`);
   });
 });
